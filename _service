@@ -1,0 +1,22 @@
+<services>
+	<service name="obs_scm" mode="">
+		<param name="url">https://github.com/huakim/FireDM</param>
+		<param name="scm">git</param>
+		<param name="filename">firedm</param>
+		<param name="revision">master</param>
+		<param name="changesgenerate">enable</param>
+		<param name="without-version">enable</param>
+	</service>
+	<service name="py_build" mode="buildtime">
+		<param name="source">firedm</param>
+		<param name="wheel">disable</param>
+	</service>
+	<service name="py2pack_generate" mode="buildtime">
+		<param name="name">firedm</param>
+		<param name="localfile">*.tar.gz</param>
+	</service>
+	<service name="perl_regex" mode="buildtime">
+		<param name="regex">s~%{pypi_name}-%{version}~firedm-%{version}~g;</param>
+		<param name="file">*.spec</param>
+	</service>
+</services>
