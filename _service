@@ -16,7 +16,7 @@
 		<param name="localfile">*.tar.gz</param>
 	</service>
 	<service name="perl_regex" mode="buildtime">
-		<param name="regex">s~%{pypi_name}-%{version}~firedm-%{version}~g;</param>
+		<param name="regex">s~%autosetup.*~%autosetup -p1 -n firedm-%{version}~g;</param>
 		<param name="file">*.spec</param>
 	</service>
 </services>
